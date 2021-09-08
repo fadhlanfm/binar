@@ -1,4 +1,4 @@
-## endpoint
+## Endpoint List
 
 - [GET /tasks](#get-tasks)
 - [GET /students](#get-students)
