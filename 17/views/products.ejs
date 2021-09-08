@@ -1,0 +1,18 @@
+<html>
+  <div class="div">
+    <ul>
+      <%= JSON.stringify(products) %>
+      <% for (let i = 0; i < products.length; i++) { %>
+        <li>
+          <%= products[i] %>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+</html>
+
+<style>
+  .div {
+    background-color: blue;
+  }
+</style>
