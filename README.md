@@ -1,4 +1,4 @@
-# binar
+# binar (CALLBACK)
 function rendam() {
     return new Promise((resolve, reject) => {
         setTimeout(function () {
