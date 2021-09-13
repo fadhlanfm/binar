@@ -1,0 +1,18 @@
+<html>
+  <div class="div">
+    <ul>
+      <%= JSON.stringify(teachers) %>
+      <% for (let i = 0; i < teachers.length; i++) { %>
+        <li>
+          <%= JSON.stringify(teachers[i]) %>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+</html>
+
+<style>
+  .div {
+    background-color: blue;
+  }
+</style>
