@@ -3,7 +3,7 @@ a. Sebutkan entities (sing.: entity) yang terdapat pada ERD terlampir!
 /* jawaban disini */
 b. Terdapat 6 relasi dalam ERD terlampir, sebutkan jenis relasi dari masing-masing relasi!
 /* jawaban disini */
-Album created by Artist (one-to-one)
+Album created by Artist: one-to-one (misal)
 ...dst...
 c. Dari 7 Foreign Key (FK), ada 1 FK yang tidak diperlukan. Pilih FK apa dan dari tabel mana dan sertakan alasanmu!
 /* jawaban disini */
