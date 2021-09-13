@@ -1,0 +1,31 @@
+1. Dari 7 Foreign Key (FK), ada 1 FK yang tidak diperlukan. Pilih FK apa dan dari tabel mana dan sertakan alasanmu!
+/* jawaban disini */
+
+2. Tuliskan query SQL untuk mengimplementasikan desain atau ERD (Entity Relationship Diagram) terlampir!
+Perhatikan atribut-atribut, tipe data, dan relasi setiap tabel!
+Atribut yang tidak perlu:
+User: FirstName, LastName, Email, Password, SignUpDate, ProfilePic.
+Song: Duration, Path, AlbumOrder, Plays.
+Album: ArtworkPath.
+Ingat, many-to-many perlu tabel penghubung! (Jenis relasi berdasarkan garis penghubung bisa dilihat disini https://d2slcw3kip6qmk.cloudfront.net/marketing/pages/chart/erd-symbols/ERD-Notation.PNG)
+
+Tulis query di bawah sini:
+/* query disini */
+
+3. Melalui pgAdmin, sertakan screenshot seluruh tabel yang anda buat!
+Silahkan di-upload ke cloud (imgur, google drive, dsb) dan pastikan link tidak private!
+
+Tulis url screenshot di bawah sini:
+/* url disini */
+
+4. Tuliskan query dari persoalan berikut:
+a. Saya ingin tahu seluruh daftar user.
+/* query disini */
+b. Saya ingin tahu seluruh daftar lagu beserta genrenya.
+/* query disini */
+c. Saya ingin tahu daftar seluruh album dari "Noah".
+/* query disini */
+d. Saya ingin tahu daftar seluruh lagu bergenre "Dangdut".
+/* query disini */
+e. Saya ingin tahu daftar seluruh genre yang dipilih oleh user dengan username fadhlanmakarim.
+/* query disini */
