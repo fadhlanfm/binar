@@ -3,6 +3,7 @@ const company = require("../models/company")
 
 class UsersController{
   static async create(req, res) {
+    let statusCode;
     const email = req.body.email
     const firstName = req.body.firstName
     const lastName = req.body.lastName
@@ -10,7 +11,11 @@ class UsersController{
     const objUser = { email, firstName, lastName, companyId }
     const user = await User.create(objUser);
     if (user) {
-      res.status(200).json(user)
+      statusCode = 201;
+      let output = {
+        statusCode, userCreated: user
+      }
+      res.status(200).json(output)
     }
   } 
 

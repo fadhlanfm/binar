@@ -1,16 +1,39 @@
 const { User, Company } = require("../models")
 
 class UsersController{
-  static async create(req, res) {
+  static async create(req, res, next) {
+    let statusCode;
     const email = req.body.email
     const firstName = req.body.firstName
     const lastName = req.body.lastName
     const companyId = req.body.companyId
     const objUser = { email, firstName, lastName, companyId }
-    const user = await User.create(objUser);
-    if (user) {
-      res.status(200).json(user)
-    }
+    // const user = await User.create(objUser);
+    // try {
+    //   const user = await User.create(objUser);
+    //   if (user) {
+    //     statusCode = 201;
+    //     let output = {
+    //       statusCode, userCreated: user
+    //     }
+    //     res.status(201).json(output)
+    //   }
+    // } catch (error) {
+    //   next(err)
+    // }
+    User.create(objUser)
+      .then(user => {
+        if (user) {
+          statusCode = 201;
+          let output = {
+            statusCode, userCreated: user
+          }
+          res.status(201).json(output)
+        }
+      })
+      .catch(err => {
+        next(err)
+      })
   } 
 
   static async getAll(req, res) {
