@@ -1,4 +1,5 @@
 const { User, Company } = require("../models")
+const { encrypt } = require("../helpers/bcrypt")
 
 class UsersController{
   static async create(req, res, next) {
@@ -7,7 +8,8 @@ class UsersController{
     const firstName = req.body.firstName
     const lastName = req.body.lastName
     const companyId = req.body.companyId
-    const objUser = { email, firstName, lastName, companyId }
+    const password = encrypt(req.body.password)
+    const objUser = { email, firstName, lastName, companyId, password }
     // const user = await User.create(objUser);
     // try {
     //   const user = await User.create(objUser);
