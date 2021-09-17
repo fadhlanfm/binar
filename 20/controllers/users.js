@@ -1,5 +1,6 @@
 const { User, Company } = require("../models")
 const { encrypt } = require("../helpers/bcrypt")
+const { getUserData } = require("../helpers/jwt")
 
 class UsersController{
   static async create(req, res, next) {
@@ -39,8 +40,16 @@ class UsersController{
   } 
 
   static async getAll(req, res) {
-    // const users = await User.findAll();
-    const users = await User.findAll({ include: Company });
+    let token = req.headers.token;
+    let userData = getUserData(token)
+    // kita filter get usernya berdasarkan company id yg lagi login
+    let userCompanyId = userData.companyId;
+    const users = await User.findAll({ 
+      where: {
+        companyId: userCompanyId
+      },
+      include: Company 
+    });
     res.status(200).json(users)
   }
 }
