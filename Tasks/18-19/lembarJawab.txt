@@ -1,12 +1,20 @@
 1. Konsep:
 a. Sebutkan entities (sing.: entity) yang terdapat pada ERD terlampir!
 /* jawaban disini */
+User, Song, Artist, Genre, Album
 b. Terdapat 6 relasi dalam ERD terlampir, sebutkan jenis relasi dari masing-masing relasi!
 /* jawaban disini */
 Album created by Artist: one-to-one (misal)
-...dst...
+User - Song: many-to-many
+Artist - Song: one-to-many
+Artist - Album: one-to-many
+Genre - Song: one-to-many
+Genre - Album: one-to-many
+Album - Song: one-to-many
+
 c. Dari 7 Foreign Key (FK), ada 1 FK yang tidak diperlukan. Pilih FK apa dan dari tabel mana dan sertakan alasanmu!
 /* jawaban disini */
+FK Song di table Album
 
 2. Tuliskan query SQL untuk mengimplementasikan desain atau ERD (Entity Relationship Diagram) terlampir!
 Perhatikan atribut-atribut, tipe data, dan relasi setiap tabel!
@@ -18,6 +26,25 @@ Ingat, many-to-many perlu tabel penghubung! (Jenis relasi berdasarkan garis peng
 
 Tulis query di bawah sini:
 /* query disini */
+CREATE TABLE User (
+    id SERIAL,
+    username VARCHAR(255),
+);
+
+CREATE TABLE UsersSongs (
+    id SERIAL,
+    id_user INT,
+    id_song INT,
+);
+
+// UsersSongs
+id  id_user    id_song
+1   12         345
+2   12         124
+3   12         78
+4   12         12
+5   45         12
+6   44         12
 
 3. Melalui pgAdmin, sertakan screenshot seluruh tabel yang anda buat!
 Silahkan di-upload ke cloud (imgur, google drive, dsb) dan pastikan link tidak private!
@@ -28,11 +55,19 @@ Tulis url screenshot di bawah sini:
 4. Tuliskan query dari persoalan berikut:
 a. Saya ingin tahu seluruh daftar user.
 /* query disini */
+SELECT * FROM Users
 b. Saya ingin tahu seluruh daftar lagu beserta genrenya.
 /* query disini */
+SELECT Songs.title, Genres.name FROM Songs INNER JOIN Genres ON Song.id_genre = Genre.id
 c. Saya ingin tahu daftar seluruh album dari "Noah".
 /* query disini */
+SELECT Albums.title, Artists.name FROM Albums INNER JOIN Artists ON Albums.id_artists = Artists.id WHERE Artists.name = 'Noah'
 d. Saya ingin tahu daftar seluruh lagu bergenre "Dangdut".
 /* query disini */
+SELECT Songs.title, Genres.name FROM Songs INNER JOIN Genres ON Songs.id_genre = Genres.id WHERE Genres.name = 'Dangdut'
 e. Saya ingin tahu daftar seluruh genre yang dipilih oleh user dengan username fadhlanmakarim.
 /* query disini */
+SELECT Genres.name FROM Genres INNER JOIN Songs ON Genres.id = Songs.id_genre
+INNER JOIN UsersSongs ON Songs.id = UsersSongs.id_song
+INNER JOIN Users ON UsersSongs.id_user = Users.id
+WHERE Users.username = 'fadhlanmakarim'

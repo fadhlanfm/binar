@@ -1,0 +1,34 @@
+Membuat REST API untuk TO-DO LIST APP
+
+TO-DO LIST APP adalah aplikasi untuk membuat daftar tugas-tugas (task) yang akan dilakukan oleh user. User dapat menandai setiap task yang sudah diselesaikan.
+
+Lihatlah prototype design app berikut https://www.sourcecodester.com/sites/default/files/2018-06-01_13_25_18-localhost_php_-_simple_to_do_list_app_index.php_.png
+
+Bayangkan anda akan bekerja sama dengan front-end developer untuk membuat aplikasi tersebut. Tugas anda adalah membuat REST API dari aplikasi TO-DO LIST.
+
+Buatlah REST API dengan melengkapi fitur-fitur berikut:
+1. Create new account
+  - Mengisi username, password, dan gender (male/female)
+  - Password harus di-enkripsi
+  - Jika create new account sukses, maka username dan password-nya dapat digunakan untuk login ke aplikasi
+2. Sign in
+  - Jika ingin memakai aplikasi, user diharuskan login terlebih dahulu menggunakan username dan passwordnya
+  - Jika user belum login, maka tidak bisa mengakses seluruh fitur aplikasi
+2. Add new task
+  - Membuat task baru dengan memasukkan nama tasknya saja. Misal: "Memancing"
+  - Setiap task memiliki 2 jenis status yaitu, "undone" dan "done"
+  - Default status task adalah "undone"
+3. See task list
+  - User dapat melihat daftar tasknya beserta statusnya
+  - User hanya dapat melihat daftar task yang dia buat
+  - User tidak bisa melihat task yang dibuat oleh orang lain
+4. Finish task
+  - User dapat mengubah status task menjadi "done" dengan mengklik tombol hijau di kolom Action
+  - User hanya dapat mengubah status task yang dia buat
+  - User tidak bisa mengubah status task yang dibuat oleh orang lain
+5. Delete task
+  - User dapat menghapus task dengan mengklik tombol merah di kolom Action
+  - User dengan gender "female" dapat menghapus tasknya
+  - User dengan gender "male" TIDAK DAPAT menghapus tasknya
+  - User hanya bisa menghapus task yang dia buat
+  - User tidak bisa menghapus task yang dibuat oleh orang lain
