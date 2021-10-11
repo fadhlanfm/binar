@@ -27,12 +27,14 @@ module.exports = (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING
     },
+    isVerified: DataTypes.INTEGER,
+    verifCode: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'User',
   });
   User.associate = function(models) {
-    User.belongsTo(models.Company, { foreignKey: "companyId" })
+    // User.belongsTo(models.Company, { foreignKey: "companyId" })
     User.belongsToMany(models.WorkingDay, { through: "UsersWorkingDays", foreignKey: "userId", as: "days" })
   }
 

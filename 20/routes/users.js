@@ -4,6 +4,5 @@ const { isLogin } = require("../middlewares/auth")
 
 router.get("/", isLogin, UsersController.getAll)
 // router.get("/:id", TeachersController.getTeacherById)
-router.post("/", isLogin, UsersController.create)
 
 module.exports = router;
